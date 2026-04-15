@@ -15,7 +15,6 @@
   <meta name="twitter:title" content="OnboardAI | AI-powered access control onboarding">
   <meta name="twitter:description" content="Self-service enrollment, member matching, fraud controls, and multi-site management for Hikvision access control.">
   <link rel="canonical" href="https://onboardai.co.za/">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <style>
     :root{
       --bg:#060610;
@@ -184,7 +183,7 @@
       display:flex;align-items:center;gap:14px;min-width:0
     }
     .logo-mark{
-      width:42px;height:42px;color:#b7c0ff;
+      width:50px;height:50px;color:#b7c0ff;
       filter:drop-shadow(0 0 8px rgba(129,140,248,0.3));
       flex:0 0 auto;
     }
@@ -350,13 +349,13 @@
       display:flex;align-items:center;gap:10px
     }
     .mini-brand .mark-badge{
-      width:30px;height:30px;border-radius:10px;
+      width:38px;height:38px;border-radius:12px;
       background:linear-gradient(135deg, rgba(129,140,248,0.22), rgba(56,189,248,0.18));
       border:1px solid rgba(129,140,248,0.3);
       display:grid;place-items:center;
       color:#dfe7ff;
     }
-    .mini-brand .mark-badge svg{width:18px;height:18px}
+    .mini-brand .mark-badge svg{width:24px;height:24px}
     .mini-brand .mini-word{
       font-size:14px;font-weight:700;letter-spacing:-0.03em
     }
@@ -414,12 +413,48 @@
     }
     .phone-float{
       position:absolute;
-      right:-10px;
-      bottom:-20px;
-      width:min(260px, 42%);
-      transform:rotate(8deg);
+      right:10px;
+      bottom:2px;
+      width:min(300px, 48%);
+      transform:rotate(2deg);
       z-index:3;
-      filter:drop-shadow(0 20px 40px rgba(0,0,0,.45));
+      filter:drop-shadow(0 22px 42px rgba(0,0,0,.42));
+    }
+    .hero-stage .phone{
+      border-radius:36px;
+    }
+    .hero-stage .phone-inner{
+      min-height:410px;
+    }
+    .hero-stage .screen{
+      padding:38px 18px 18px;
+      gap:14px;
+    }
+    .hero-stage .phone-title{font-size:21px}
+    .hero-stage .phone-copy{font-size:13px;line-height:1.55}
+    .hero-stage .face-preview{min-height:176px}
+    .hero-face-preview{
+      background:
+        radial-gradient(circle at 50% 40%, rgba(129,140,248,.20), transparent 38%),
+        linear-gradient(180deg, rgba(129,140,248,.08), rgba(56,189,248,.03));
+      border:1px solid rgba(129,140,248,.14);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+    }
+    .hero-face-preview::before{display:none}
+    .hero-face-preview::after{
+      z-index:2;
+      opacity:.78;
+      width:170px;
+      top:50%;
+    }
+    .hero-face-preview .scan-corners{display:none}
+    .scan-logo{
+      position:absolute;
+      width:148px;
+      height:auto;
+      z-index:1;
+      opacity:.96;
+      filter:drop-shadow(0 12px 26px rgba(0,0,0,.24));
     }
     .phone{
       background:#080910;
@@ -554,16 +589,17 @@
 
     .hero-side-card{
       position:absolute;
-      top:28px;
-      left:-24px;
-      width:180px;
-      padding:16px;
-      border-radius:22px;
-      background:rgba(13,13,26,.9);
+      top:8px;
+      left:-42px;
+      width:154px;
+      padding:14px;
+      border-radius:20px;
+      background:rgba(13,13,26,.74);
+      backdrop-filter:blur(14px);
       border:1px solid rgba(255,255,255,.08);
       box-shadow:var(--shadow);
       z-index:4;
-      transform:rotate(-6deg);
+      transform:rotate(-4deg);
     }
     .hero-side-card h4{
       font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin-bottom:10px
@@ -572,9 +608,9 @@
       border-radius:18px;background:#fff;padding:14px;display:grid;place-items:center;
     }
     .hero-side-card .qr-meta{
-      margin-top:10px;font-size:12px;color:var(--text-muted)
+      margin-top:8px;font-size:11px;color:var(--text-muted);line-height:1.5
     }
-    .qr-svg{width:110px;height:110px}
+    .qr-svg{width:96px;height:96px}
     .hero-callout{
       position:absolute;
       right:24px;
@@ -939,7 +975,7 @@
       .hero-stage{min-height:auto;padding-top:28px}
       .hero-side-card{left:0;top:8px}
       .hero-callout{right:10px;top:18px}
-      .phone-float{position:relative;right:auto;bottom:auto;transform:none;margin:18px auto 0;width:min(320px,80%)}
+      .phone-float{position:relative;right:auto;bottom:auto;transform:none;margin:18px auto 0;width:min(338px,82%)}
       .flow-grid{grid-template-columns:1fr}
       .arrow{min-height:48px}
       .arrow::before{width:1px;height:100%;left:50%;top:0;transform:translateX(-50%)}
@@ -971,7 +1007,7 @@
       .container{width:min(100vw - 24px, 1180px)}
       .nav-shell{height:74px}
       .wordmark{font-size:22px}
-      .logo-mark{width:38px;height:38px}
+      .logo-mark{width:44px;height:44px}
       .hero-chip-row{gap:10px}
       .hero-chip{font-size:13px}
       .hero-side-card,.hero-callout{position:static;transform:none;width:100%;max-width:none;margin-bottom:14px}
@@ -1057,38 +1093,38 @@
         <a class="logo-lockup" href="#top" aria-label="OnboardAI home">
           <svg class="logo-mark" viewBox="0 0 200 200" fill="none" aria-hidden="true">
             <defs>
-              <linearGradient id="logoGrad" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+              <linearGradient id="logoGradHeader" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#818cf8"/>
                 <stop offset="1" stop-color="#38bdf8"/>
               </linearGradient>
             </defs>
-            <path d="M28 55 L28 28 L55 28" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-            <path d="M145 28 L172 28 L172 55" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-            <path d="M28 145 L28 172 L55 172" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-            <path d="M145 172 L172 172 L172 145" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-            <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGrad)" stroke-width="4" opacity="0.25" fill="url(#logoGrad)" fill-opacity="0.06" />
-            <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGrad)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
-            <circle cx="82" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
-            <circle cx="118" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
-            <circle cx="100" cy="102" r="4" fill="url(#logoGrad)" opacity="0.7" />
-            <circle cx="74" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
-            <circle cx="126" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
-            <circle cx="100" cy="64" r="3" fill="url(#logoGrad)" opacity="0.5" />
-            <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-            <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <path d="M28 55 L28 28 L55 28" stroke="url(#logoGradHeader)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 28 L172 28 L172 55" stroke="url(#logoGradHeader)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M28 145 L28 172 L55 172" stroke="url(#logoGradHeader)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 172 L172 172 L172 145" stroke="url(#logoGradHeader)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGradHeader)" stroke-width="4" opacity="0.25" fill="url(#logoGradHeader)" fill-opacity="0.06" />
+            <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGradHeader)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+            <circle cx="82" cy="76" r="4.5" fill="url(#logoGradHeader)" opacity="0.9" />
+            <circle cx="118" cy="76" r="4.5" fill="url(#logoGradHeader)" opacity="0.9" />
+            <circle cx="100" cy="102" r="4" fill="url(#logoGradHeader)" opacity="0.7" />
+            <circle cx="74" cy="96" r="3" fill="url(#logoGradHeader)" opacity="0.5" />
+            <circle cx="126" cy="96" r="3" fill="url(#logoGradHeader)" opacity="0.5" />
+            <circle cx="100" cy="64" r="3" fill="url(#logoGradHeader)" opacity="0.5" />
+            <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGradHeader)" stroke-width="1.5" opacity="0.2" />
             <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
-              <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
-              <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
-              <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
-              <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGradHeader)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGradHeader)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGradHeader)" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGradHeader)" stroke-width="1.5" stroke-linecap="round" />
             </g>
-            <path d="M88 150 L97 159 L114 140" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+            <path d="M88 150 L97 159 L114 140" stroke="url(#logoGradHeader)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
           </svg>
           <span class="wordmark"><span>Onboard</span><span class="ai">AI</span></span>
         </a>
@@ -1101,7 +1137,7 @@
           <a href="#security">Security</a>
           <a href="#architecture">Architecture</a>
           <a href="#status">Status</a>
-          <a class="btn btn-primary nav-cta" href="#contact">Get in Touch</a>
+          <a class="btn btn-primary nav-cta" href="mailto:info@onboardai.co.za?subject=OnboardAI%20website%20enquiry&body=Hi%20OnboardAI%20team%2C%0A%0AI%27m%20interested%20in%20OnboardAI.%0A%0ASite%20or%20business%20name%3A%0ASite%20type%3A%0AApproximate%20number%20of%20people%3A%0ACurrent%20access%20control%20setup%3A%0A%0ARegards%2C%0A">Get in Touch</a>
         </nav>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation">
@@ -1118,7 +1154,7 @@
           <a href="#security">Security</a>
           <a href="#architecture">Architecture</a>
           <a href="#status">Status</a>
-          <a href="#contact">Get in Touch</a>
+          <a href="mailto:info@onboardai.co.za?subject=OnboardAI%20website%20enquiry&body=Hi%20OnboardAI%20team%2C%0A%0AI%27m%20interested%20in%20OnboardAI.%0A%0ASite%20or%20business%20name%3A%0ASite%20type%3A%0AApproximate%20number%20of%20people%3A%0ACurrent%20access%20control%20setup%3A%0A%0ARegards%2C%0A">Get in Touch</a>
         </div>
       </nav>
     </div>
@@ -1133,14 +1169,13 @@
           <p>OnboardAI supercharges your existing HikCentral setup, adding self-service enrollment, member matching, fraud controls, and multi-site management that HikCentral does not have.</p>
 
           <div class="hero-chip-row" aria-label="Key product highlights">
-            <div class="hero-chip">Self-service enrollment in 3 minutes</div>
-            <div class="hero-chip">Bulk approval for 2,000+ members</div>
+            <div class="hero-chip">Self-service enrollment from any device</div>
+            <div class="hero-chip">Bulk approval for large member lists</div>
             <div class="hero-chip">Built for estates, golf clubs, and businesses</div>
           </div>
 
           <div class="button-row">
             <a class="btn btn-primary" href="#workflow">See the workflow</a>
-            <a class="btn btn-secondary" href="#contact">Book a live demo</a>
           </div>
         </div>
 
@@ -1191,9 +1226,6 @@
             </div>
             <div class="qr-meta">Expiry: 30 days<br>Tracked enrollments: 184</div>
           </div>
-
-          <div class="hero-callout">
-            <div class="signal">✓</div>
             <div>
               <strong>AI verified</strong>
               <span>Photo passed checks. Ready for approval.</span>
@@ -1210,40 +1242,40 @@
                 <div class="mini-brand">
                   <span class="mark-badge">
                     <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id="logoGrad" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#818cf8"/>
-                          <stop offset="1" stop-color="#38bdf8"/>
-                        </linearGradient>
-                      </defs>
-                      <path d="M28 55 L28 28 L55 28" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <path d="M145 28 L172 28 L172 55" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <path d="M28 145 L28 172 L55 172" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <path d="M145 172 L172 172 L172 145" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGrad)" stroke-width="4" opacity="0.25" fill="url(#logoGrad)" fill-opacity="0.06" />
-                      <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGrad)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
-                      <circle cx="82" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
-                      <circle cx="118" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
-                      <circle cx="100" cy="102" r="4" fill="url(#logoGrad)" opacity="0.7" />
-                      <circle cx="74" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
-                      <circle cx="126" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
-                      <circle cx="100" cy="64" r="3" fill="url(#logoGrad)" opacity="0.5" />
-                      <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
-                        <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
-                        <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
-                        <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
-                        <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
-                      </g>
-                      <path d="M88 150 L97 159 L114 140" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
-                    </svg>
+            <defs>
+              <linearGradient id="logoGradMini1" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 55 L28 28 L55 28" stroke="url(#logoGradMini1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 28 L172 28 L172 55" stroke="url(#logoGradMini1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M28 145 L28 172 L55 172" stroke="url(#logoGradMini1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 172 L172 172 L172 145" stroke="url(#logoGradMini1)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGradMini1)" stroke-width="4" opacity="0.25" fill="url(#logoGradMini1)" fill-opacity="0.06" />
+            <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGradMini1)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+            <circle cx="82" cy="76" r="4.5" fill="url(#logoGradMini1)" opacity="0.9" />
+            <circle cx="118" cy="76" r="4.5" fill="url(#logoGradMini1)" opacity="0.9" />
+            <circle cx="100" cy="102" r="4" fill="url(#logoGradMini1)" opacity="0.7" />
+            <circle cx="74" cy="96" r="3" fill="url(#logoGradMini1)" opacity="0.5" />
+            <circle cx="126" cy="96" r="3" fill="url(#logoGradMini1)" opacity="0.5" />
+            <circle cx="100" cy="64" r="3" fill="url(#logoGradMini1)" opacity="0.5" />
+            <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGradMini1)" stroke-width="1.5" opacity="0.2" />
+            <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
+              <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGradMini1)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGradMini1)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGradMini1)" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGradMini1)" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+            <path d="M88 150 L97 159 L114 140" stroke="url(#logoGradMini1)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+          </svg>
                   </span>
                   <div class="mini-word accent-text">OnboardAI</div>
                 </div>
@@ -1294,8 +1326,42 @@
                   <div class="step-pill">Step 4 of 5</div>
                   <div class="phone-title">Upload your gate photo</div>
                   <div class="phone-copy">Stand facing the camera. Good lighting. No sunglasses. The AI checks the image before you submit.</div>
-                  <div class="face-preview">
-                    <div class="scan-corners"><i></i><i></i><i></i><i></i></div>
+                  <div class="face-preview hero-face-preview">
+                    <svg class="scan-logo" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="logoGradScan" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 55 L28 28 L55 28" stroke="url(#logoGradScan)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 28 L172 28 L172 55" stroke="url(#logoGradScan)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M28 145 L28 172 L55 172" stroke="url(#logoGradScan)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 172 L172 172 L172 145" stroke="url(#logoGradScan)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGradScan)" stroke-width="4" opacity="0.25" fill="url(#logoGradScan)" fill-opacity="0.06" />
+            <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGradScan)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+            <circle cx="82" cy="76" r="4.5" fill="url(#logoGradScan)" opacity="0.9" />
+            <circle cx="118" cy="76" r="4.5" fill="url(#logoGradScan)" opacity="0.9" />
+            <circle cx="100" cy="102" r="4" fill="url(#logoGradScan)" opacity="0.7" />
+            <circle cx="74" cy="96" r="3" fill="url(#logoGradScan)" opacity="0.5" />
+            <circle cx="126" cy="96" r="3" fill="url(#logoGradScan)" opacity="0.5" />
+            <circle cx="100" cy="64" r="3" fill="url(#logoGradScan)" opacity="0.5" />
+            <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGradScan)" stroke-width="1.5" opacity="0.2" />
+            <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
+              <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGradScan)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGradScan)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGradScan)" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGradScan)" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+            <path d="M88 150 L97 159 L114 140" stroke="url(#logoGradScan)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+          </svg>
                   </div>
                   <div class="check-row"><span class="dot">✓</span> Face detected. Framing looks good.</div>
                   <div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
@@ -1316,7 +1382,7 @@
         <div class="section-intro">
           <span class="eyebrow">The problem</span>
           <h2>Every enrollment requires a physical appointment at the guardhouse</h2>
-          <p>At most estates, golf clubs, and business parks today, enrolling someone into the Hikvision facial recognition system still means a physical meeting at the guardhouse or security office. Every time. No exceptions.</p>
+          <p>At most estates and golf courses today, enrolling someone into the Hikvision facial recognition system means a physical meeting at the guardhouse. Every time. No exceptions.</p>
         </div>
 
         <div class="problem-grid">
@@ -1349,14 +1415,14 @@
 
           <div class="callout-stack">
             <div class="callout-card emphasis">
-              <p>This requires a physical appointment, both parties present, 15 to 20 minutes per person, the guardhouse computer to be accessible, and one person at a time. It becomes a total bottleneck. It is impossible on weekends or holidays unless someone staffs the guardhouse.</p>
+              <p>This requires a physical appointment, both parties present, around 5 minutes per person, the guardhouse computer to be accessible, and one person at a time. It becomes a total bottleneck. It is impossible on weekends or holidays unless someone staffs the guardhouse.</p>
             </div>
             <div class="callout-card">
-              <strong class="stat">For a site going live with 2,000 people: 2,000 individual appointments. Roughly 500 hours of work.</strong>
+              <strong class="stat">For a site going live with 2,000 people: 2,000 individual appointments. One at a time.</strong>
               <p>That is operational drag before the system starts delivering value.</p>
             </div>
             <div class="callout-card">
-              <p>Some sites have improved this slightly with digital forms sent via WhatsApp, but even those still require heavy manual work per person: downloading photos, copy-pasting data, assigning access levels, and checking whether the person is actually allowed access. Neither approach scales beyond a handful of people per week.</p>
+              <p>Some estates have improved this slightly with digital forms sent via WhatsApp, but even those still require heavy manual work per person: downloading photos, copy-pasting data, assigning access levels, and checking whether the person is actually allowed access. Neither approach scales beyond a handful of people per week.</p>
             </div>
           </div>
         </div>
@@ -1372,11 +1438,11 @@
         </div>
 
         <div class="solution-grid">
-          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Members self-enroll on their own phones</strong>Three minutes, no admin involvement.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Members self-enroll on their own phones</strong>Simple self-service flow with no manual admin capture.</div></div>
           <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Photo quality is checked twice</strong>AI pre-validation before submission, then HikCentral device validation at the gate.</div></div>
           <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Official list matching</strong>Automatic matching against your member or resident list.</div></div>
           <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>SA ID validation</strong>Luhn checks, duplicate detection, and cleaner records.</div></div>
-          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Bulk approvals for large launches</strong>One-click and bulk approval for 2,000+ member lists.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Bulk approvals for large launches</strong>One-click and bulk approval for large member lists.</div></div>
           <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Direct HikCentral push</strong>Approved enrollments are pushed through the API.</div></div>
           <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Fast offboarding</strong>Deactivate a member and gate access is removed within seconds.</div></div>
           <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Validity periods and roles</strong>Expiry dates and door groups by person type.</div></div>
@@ -1475,7 +1541,7 @@
                 <div class="screen">
                   <div class="step-pill">Step 1 of 5</div>
                   <div class="phone-title">Welcome to Greenfields Golf Estate</div>
-                  <div class="phone-copy">This takes about 3 minutes. You will need your ID number and a clear photo for facial recognition access.</div>
+                  <div class="phone-copy">You will need your ID number and a clear photo for facial recognition access.</div>
                   <div class="phone-panel">
                     <div class="field">
                       <label>Enrollment link</label>
@@ -1536,40 +1602,40 @@
                 <div class="mini-brand">
                   <span class="mark-badge">
                     <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id="logoGrad" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#818cf8"/>
-                          <stop offset="1" stop-color="#38bdf8"/>
-                        </linearGradient>
-                      </defs>
-                      <path d="M28 55 L28 28 L55 28" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <path d="M145 28 L172 28 L172 55" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <path d="M28 145 L28 172 L55 172" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <path d="M145 172 L172 172 L172 145" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
-                      <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGrad)" stroke-width="4" opacity="0.25" fill="url(#logoGrad)" fill-opacity="0.06" />
-                      <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGrad)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
-                      <circle cx="82" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
-                      <circle cx="118" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
-                      <circle cx="100" cy="102" r="4" fill="url(#logoGrad)" opacity="0.7" />
-                      <circle cx="74" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
-                      <circle cx="126" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
-                      <circle cx="100" cy="64" r="3" fill="url(#logoGrad)" opacity="0.5" />
-                      <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
-                      <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
-                        <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
-                        <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
-                        <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
-                        <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
-                      </g>
-                      <path d="M88 150 L97 159 L114 140" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
-                    </svg>
+            <defs>
+              <linearGradient id="logoGradMini2" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 55 L28 28 L55 28" stroke="url(#logoGradMini2)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 28 L172 28 L172 55" stroke="url(#logoGradMini2)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M28 145 L28 172 L55 172" stroke="url(#logoGradMini2)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 172 L172 172 L172 145" stroke="url(#logoGradMini2)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGradMini2)" stroke-width="4" opacity="0.25" fill="url(#logoGradMini2)" fill-opacity="0.06" />
+            <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGradMini2)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+            <circle cx="82" cy="76" r="4.5" fill="url(#logoGradMini2)" opacity="0.9" />
+            <circle cx="118" cy="76" r="4.5" fill="url(#logoGradMini2)" opacity="0.9" />
+            <circle cx="100" cy="102" r="4" fill="url(#logoGradMini2)" opacity="0.7" />
+            <circle cx="74" cy="96" r="3" fill="url(#logoGradMini2)" opacity="0.5" />
+            <circle cx="126" cy="96" r="3" fill="url(#logoGradMini2)" opacity="0.5" />
+            <circle cx="100" cy="64" r="3" fill="url(#logoGradMini2)" opacity="0.5" />
+            <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGradMini2)" stroke-width="1.5" opacity="0.2" />
+            <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
+              <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGradMini2)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGradMini2)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGradMini2)" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGradMini2)" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+            <path d="M88 150 L97 159 L114 140" stroke="url(#logoGradMini2)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+          </svg>
                   </span>
                   <div class="mini-word accent-text">OnboardAI</div>
                 </div>
@@ -1683,7 +1749,7 @@
         <div class="section-intro">
           <span class="eyebrow">Architecture</span>
           <h2>A layer on top, not a replacement</h2>
-          <p>OnboardAI sits above your existing HikCentral installation. It runs on a central server, cloud-hosted or on-site at the security office or main operations office. A lightweight on-site agent creates the bridge between OnboardAI and HikCentral, communicating over HTTPS with no inbound firewall rules or VPN required.</p>
+          <p>OnboardAI sits above your existing HikCentral installation. It runs on a central server, cloud-hosted or on-site at the site office. A lightweight on-site agent creates the bridge between OnboardAI and HikCentral, communicating over HTTPS with no inbound firewall rules or VPN required.</p>
           <p>Your existing Hikvision cameras, readers, and HikCentral licenses are unchanged. OnboardAI simply adds the onboarding intelligence on top and pushes approved enrollments through when they are ready.</p>
           <p><em>The HikCentral API integration is in active testing, leveraging the existing self-registration pipeline that HikCentral provides.</em></p>
         </div>
@@ -1718,8 +1784,8 @@
         </div>
 
         <div class="architecture-grid">
-          <div class="info-card"><small>Deployment</small><strong>Single-command setup</strong><p>Up and running in minutes on a VPS or a machine in the site office.</p></div>
-          <div class="info-card"><small>Hardware</small><strong>Cloud or on-site</strong><p>Use the infrastructure model that fits the site, campus, estate, or business.</p></div>
+          <div class="info-card"><small>Deployment</small><strong>Single-command setup</strong><p>Fast to deploy on a VPS or site office machine.</p></div>
+          <div class="info-card"><small>Hardware</small><strong>Cloud or on-site</strong><p>Use the infrastructure model that fits the estate or golf course.</p></div>
           <div class="info-card"><small>Multi-site</small><strong>Built in</strong><p>Separate settings, branding, and enrollment links per site.</p></div>
           <div class="info-card"><small>Connectivity</small><strong>No VPN required</strong><p>The agent uses outbound HTTPS only, reducing setup friction.</p></div>
         </div>
@@ -1731,7 +1797,7 @@
         <div class="section-intro">
           <span class="eyebrow">Branding</span>
           <h2>Five built-in themes, fully customisable</h2>
-          <p>The onboarding form can be branded to match your estate, golf club, business park, or office campus. Choose from five built-in themes or use your own colours and logo. Each site in a multi-site deployment can have its own look.</p>
+          <p>The onboarding form can be branded to match your estate or golf club. Choose from five built-in themes or use your own colours and logo. Each site in a multi-site deployment can have its own look.</p>
         </div>
 
         <div class="themes">
@@ -1774,7 +1840,7 @@
         <div class="steps">
           <div class="step-card">
             <div class="step-number">1</div>
-            <div><h3>Deploy OnboardAI on a server</h3><p class="muted">Provision a server, either a cloud VPS or an on-site machine in the site office. OnboardAI is installed and running in under 15 minutes.</p></div>
+            <div><h3>Deploy OnboardAI on a server</h3><p class="muted">Provision a server, either a cloud VPS or an on-site machine at the site office. OnboardAI can be installed and running quickly.</p></div>
           </div>
           <div class="step-card">
             <div class="step-number">2</div>
@@ -1813,7 +1879,7 @@
           <div class="status-box testing"><small>In testing</small><h4>HikCentral API integration</h4><p>Leveraging HikCentral's existing self-registration pipeline for approved enrollments.</p></div>
           <div class="status-box planned"><small>Planned</small><h4>WhatsApp status notifications</h4><p>Notify members the moment access becomes active.</p></div>
           <div class="status-box planned"><small>Planned</small><h4>Payment integration for new member fees</h4><p>Link onboarding to payment steps where a site needs it.</p></div>
-          <div class="status-box planned"><small>Planned</small><h4>Self-service site signup</h4><p>Support faster onboarding for new estates, golf clubs, and businesses.</p></div>
+          <div class="status-box planned"><small>Planned</small><h4>Self-service site signup</h4><p>Support faster onboarding for new estates and golf courses.</p></div>
         </div>
       </div>
     </section>
@@ -1823,9 +1889,9 @@
         <div class="cta-panel">
           <span class="eyebrow">Get in touch</span>
           <h2>Interested in OnboardAI?</h2>
-          <p>Interested in OnboardAI for your estate, golf club, business park, or office campus? We can arrange a live demo and walk through the installation process with your IT team. Get in touch and we will set it up.</p>
+          <p>Interested in OnboardAI for your estate, golf club, business park, or office campus? Get in touch to discuss your site, rollout requirements, and installation approach with your IT team.</p>
           <div class="button-row" style="justify-content:center">
-            <a class="btn btn-primary" href="mailto:info@onboardai.co.za">info@onboardai.co.za</a>
+            <a class="btn btn-primary" href="mailto:info@onboardai.co.za?subject=OnboardAI%20website%20enquiry&body=Hi%20OnboardAI%20team%2C%0A%0AI%27m%20interested%20in%20OnboardAI.%0A%0ASite%20or%20business%20name%3A%0ASite%20type%3A%0AApproximate%20number%20of%20people%3A%0ACurrent%20access%20control%20setup%3A%0A%0ARegards%2C%0A">info@onboardai.co.za</a>
             <a class="btn btn-secondary" href="#top">Back to top</a>
           </div>
         </div>
