@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onboardai.co.za/sitemap.xml

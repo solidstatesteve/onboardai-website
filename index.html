@@ -1,0 +1,1874 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OnboardAI | AI-powered access control onboarding</title>
+  <meta name="description" content="OnboardAI is the smart onboarding layer for Hikvision access control. Self-service enrollment, member matching, fraud controls, and multi-site management for South African estates, golf clubs, business parks, and office campuses.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#060610">
+  <meta property="og:title" content="OnboardAI | AI-powered access control onboarding">
+  <meta property="og:description" content="The smart onboarding layer for Hikvision access control. Built for South African estates, golf clubs, business parks, and office campuses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onboardai.co.za/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OnboardAI | AI-powered access control onboarding">
+  <meta name="twitter:description" content="Self-service enrollment, member matching, fraud controls, and multi-site management for Hikvision access control.">
+  <link rel="canonical" href="https://onboardai.co.za/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root{
+      --bg:#060610;
+      --surface:#0d0d1a;
+      --surface2:#141425;
+      --surface3:#17172d;
+      --border:rgba(255,255,255,0.07);
+      --text:#f0f0f5;
+      --text-muted:rgba(240,240,245,0.55);
+      --text-faint:rgba(240,240,245,0.30);
+      --accent:#818cf8;
+      --accent2:#38bdf8;
+      --green:#34d399;
+      --amber:#fbbf24;
+      --red:#f87171;
+      --shadow:0 20px 60px rgba(0,0,0,0.35);
+      --glow:0 4px 20px rgba(129,140,248,0.3);
+      --gradient:linear-gradient(135deg,var(--accent),var(--accent2));
+      --radius:22px;
+      --radius-sm:14px;
+      --container:min(1180px, calc(100vw - 40px));
+      --nav-height:84px;
+      --grid-gap:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(129,140,248,0.18), transparent 60%),
+        radial-gradient(800px 400px at 80% 0%, rgba(56,189,248,0.10), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.75;
+      font-size:17px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:var(--container);margin:0 auto}
+    .section{padding:110px 0;position:relative}
+    .grid{display:grid;gap:var(--grid-gap)}
+    .muted{color:var(--text-muted)}
+    .faint{color:var(--text-faint)}
+    .accent-text{
+      background:var(--gradient);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:18px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      background:var(--gradient);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    h1,h2,h3,h4,p{margin:0}
+    h1{
+      font-size:clamp(32px,5vw,52px);
+      line-height:1.04;
+      letter-spacing:-1.5px;
+      font-weight:800;
+      max-width:820px;
+    }
+    h2{
+      font-size:clamp(24px,3.5vw,34px);
+      line-height:1.14;
+      letter-spacing:-0.03em;
+      font-weight:700;
+      margin-bottom:18px;
+      max-width:760px;
+    }
+    h3{
+      font-size:20px;
+      line-height:1.3;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .section-intro{
+      display:grid;
+      gap:18px;
+      margin-bottom:36px;
+      max-width:860px;
+    }
+    .section-intro p{color:var(--text-muted)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)), var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .subtle-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(129,140,248,0.18), rgba(56,189,248,0.16));
+      border:1px solid rgba(129,140,248,0.28);
+      color:#dfe7ff;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      box-shadow:var(--glow);
+    }
+    .pill::before{
+      content:"";
+      width:8px;height:8px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 16px rgba(129,140,248,0.5);
+    }
+    .button-row{
+      display:flex;flex-wrap:wrap;gap:14px;margin-top:32px
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:16px;
+      border:1px solid transparent;
+      font-weight:700;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+      min-height:52px;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--gradient);
+      color:#fff;
+      box-shadow:var(--glow);
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,0.02);
+      border-color:var(--border);
+      color:var(--text);
+    }
+    .btn-secondary:hover{border-color:rgba(129,140,248,0.3)}
+    header.site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(6,6,16,0.72);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+    .nav-shell{
+      height:var(--nav-height);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .logo-lockup{
+      display:flex;align-items:center;gap:14px;min-width:0
+    }
+    .logo-mark{
+      width:42px;height:42px;color:#b7c0ff;
+      filter:drop-shadow(0 0 8px rgba(129,140,248,0.3));
+      flex:0 0 auto;
+    }
+    .wordmark{
+      display:flex;
+      align-items:baseline;
+      gap:0;
+      line-height:1;
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:-0.04em;
+      background:var(--gradient);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      white-space:nowrap;
+    }
+    .wordmark .ai{font-weight:800}
+    .desktop-nav{
+      display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+      color:var(--text-muted);
+      font-size:15px;
+    }
+    .desktop-nav a{
+      transition:color .2s ease;
+    }
+    .desktop-nav a:hover{color:var(--text)}
+    .nav-cta{
+      padding:12px 18px;
+      min-height:44px;
+      border-radius:14px;
+      font-size:14px;
+    }
+    .menu-toggle{
+      display:none;
+      width:46px;height:46px;border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--border);
+      color:var(--text);
+      align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after{
+      content:"";
+      display:block;
+      width:18px;height:2px;border-radius:2px;background:currentColor;
+      transition:transform .25s ease, opacity .25s ease;
+      position:relative;
+    }
+    .menu-toggle::before{position:absolute;transform:translateY(-6px)}
+    .menu-toggle::after{position:absolute;transform:translateY(6px)}
+    .mobile-nav{
+      display:none;
+      padding:0 0 18px;
+    }
+    .mobile-nav .nav-card{
+      padding:18px;
+      background:rgba(13,13,26,0.96);
+      border:1px solid var(--border);
+      border-radius:18px;
+      display:grid;
+      gap:10px;
+    }
+    .mobile-nav a{
+      padding:12px 14px;
+      border-radius:12px;
+      color:var(--text-muted);
+      background:rgba(255,255,255,0.02);
+    }
+    .mobile-nav a:last-child{
+      background:var(--gradient);
+      color:#fff;
+      font-weight:700;
+    }
+
+    .hero{
+      padding:78px 0 84px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.08fr) minmax(0, .92fr);
+      gap:42px;
+      align-items:center;
+    }
+    .hero-copy{
+      position:relative;
+      z-index:1;
+    }
+    .hero-copy p{
+      margin-top:22px;
+      color:var(--text-muted);
+      max-width:720px;
+      font-size:19px;
+    }
+    .hero-chip-row{
+      display:flex;flex-wrap:wrap;gap:14px;margin-top:28px
+    }
+    .hero-chip{
+      padding:12px 15px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--border);
+      color:var(--text-muted);
+      font-size:14px;
+    }
+    .hero-stage{
+      position:relative;
+      min-height:620px;
+      display:grid;
+      place-items:center;
+    }
+    .hero-stage::before{
+      content:"";
+      position:absolute;inset:8% 6%;
+      background:
+        radial-gradient(circle at 30% 35%, rgba(129,140,248,0.24), transparent 30%),
+        radial-gradient(circle at 65% 20%, rgba(56,189,248,0.14), transparent 26%),
+        radial-gradient(circle at 70% 72%, rgba(129,140,248,0.12), transparent 24%);
+      filter:blur(12px);
+      pointer-events:none;
+    }
+    .browser-frame{
+      position:relative;
+      width:min(100%, 600px);
+      border-radius:28px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)), #0b0d18;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 30px 80px rgba(0,0,0,0.45);
+      z-index:2;
+    }
+    .browser-top{
+      display:flex;align-items:center;gap:12px;
+      padding:16px 18px;
+      background:rgba(255,255,255,0.03);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+    .traffic{
+      display:flex;gap:8px;align-items:center
+    }
+    .traffic span{width:10px;height:10px;border-radius:50%}
+    .traffic span:nth-child(1){background:#ff5f57}
+    .traffic span:nth-child(2){background:#febc2e}
+    .traffic span:nth-child(3){background:#28c840}
+    .urlbar{
+      flex:1;
+      padding:9px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      color:var(--text-faint);
+      font-size:13px;
+      border:1px solid rgba(255,255,255,0.04);
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    }
+    .browser-body{padding:22px}
+    .mini-nav{
+      display:flex;justify-content:space-between;align-items:center;margin-bottom:18px
+    }
+    .mini-brand{
+      display:flex;align-items:center;gap:10px
+    }
+    .mini-brand .mark-badge{
+      width:30px;height:30px;border-radius:10px;
+      background:linear-gradient(135deg, rgba(129,140,248,0.22), rgba(56,189,248,0.18));
+      border:1px solid rgba(129,140,248,0.3);
+      display:grid;place-items:center;
+      color:#dfe7ff;
+    }
+    .mini-brand .mark-badge svg{width:18px;height:18px}
+    .mini-brand .mini-word{
+      font-size:14px;font-weight:700;letter-spacing:-0.03em
+    }
+    .stats-strip{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px
+    }
+    .stat-card{
+      padding:14px;
+      border-radius:16px;
+      background:var(--surface2);
+      border:1px solid var(--border);
+    }
+    .stat-card small{display:block;color:var(--text-faint);font-size:12px;margin-bottom:4px}
+    .stat-card strong{display:block;font-size:24px;line-height:1.1;letter-spacing:-0.04em}
+    .queue{
+      display:grid;gap:12px
+    }
+    .queue-item{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto auto;
+      gap:12px;
+      align-items:center;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)), #101122;
+    }
+    .queue-item[data-tone="green"]{box-shadow:inset 0 0 0 1px rgba(52,211,153,0.12)}
+    .queue-item[data-tone="amber"]{box-shadow:inset 0 0 0 1px rgba(251,191,36,0.12)}
+    .queue-item[data-tone="red"]{box-shadow:inset 0 0 0 1px rgba(248,113,113,0.12)}
+    .person{
+      display:flex;align-items:center;gap:12px;min-width:0
+    }
+    .avatar{
+      width:40px;height:40px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(129,140,248,0.18), rgba(56,189,248,0.14));
+      border:1px solid rgba(129,140,248,0.25);
+      display:grid;place-items:center;
+      font-size:12px;font-weight:700;color:#dfe7ff;
+      flex:0 0 auto;
+    }
+    .person strong{display:block;font-size:15px}
+    .person span{display:block;font-size:12px;color:var(--text-faint);overflow:hidden;text-overflow:ellipsis}
+    .status-tag{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-width:110px;
+      padding:8px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase
+    }
+    .status-tag.green{background:rgba(52,211,153,.12);color:var(--green)}
+    .status-tag.amber{background:rgba(251,191,36,.12);color:var(--amber)}
+    .status-tag.red{background:rgba(248,113,113,.12);color:var(--red)}
+    .micro-btn{
+      padding:10px 13px;border-radius:12px;font-size:12px;font-weight:700;
+      border:1px solid var(--border);background:rgba(255,255,255,0.02);color:var(--text)
+    }
+    .phone-float{
+      position:absolute;
+      right:-10px;
+      bottom:-20px;
+      width:min(260px, 42%);
+      transform:rotate(8deg);
+      z-index:3;
+      filter:drop-shadow(0 20px 40px rgba(0,0,0,.45));
+    }
+    .phone{
+      background:#080910;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:34px;
+      padding:10px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.36);
+    }
+    .phone-inner{
+      background:linear-gradient(180deg, #0f1220, #0a0b15 80%);
+      border-radius:26px;
+      min-height:470px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .notch{
+      width:36%;
+      height:26px;
+      background:#06070d;
+      border-radius:0 0 16px 16px;
+      position:absolute;left:50%;transform:translateX(-50%);
+      top:0;z-index:3;
+    }
+    .screen{
+      padding:42px 18px 20px;
+      display:grid;
+      gap:16px;
+    }
+    .step-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(129,140,248,.12);
+      color:#dfe7ff;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      width:max-content;
+    }
+    .phone-title{font-size:23px;line-height:1.15;font-weight:800;letter-spacing:-0.04em}
+    .phone-copy{font-size:14px;color:var(--text-muted);line-height:1.6}
+    .phone-panel{
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--border);
+      display:grid;
+      gap:12px;
+    }
+    .field{
+      display:grid;gap:8px
+    }
+    .field label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);font-weight:700}
+    .field .input{
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:rgba(255,255,255,0.03);
+      padding:0 14px;
+      color:var(--text-muted);
+      display:flex;align-items:center;
+      font-size:14px;
+    }
+    .progress{
+      display:grid;grid-template-columns:repeat(5,1fr);gap:6px
+    }
+    .progress span{
+      height:6px;border-radius:999px;background:rgba(255,255,255,0.08)
+    }
+    .progress span.active{background:var(--gradient)}
+    .phone-cta{
+      display:flex;justify-content:space-between;align-items:center;gap:12px
+    }
+    .phone-cta .ghost{
+      padding:10px 14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);font-size:13px;color:var(--text-muted)
+    }
+    .phone-cta .solid{
+      padding:10px 16px;border-radius:12px;background:var(--gradient);font-size:13px;color:#fff;font-weight:700;box-shadow:var(--glow)
+    }
+    .face-preview{
+      border-radius:18px;
+      min-height:188px;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(129,140,248,.25), transparent 32%),
+        linear-gradient(180deg, rgba(129,140,248,.10), rgba(56,189,248,.04));
+      border:1px solid rgba(129,140,248,.18);
+      position:relative;
+      display:grid;place-items:center;
+      overflow:hidden;
+    }
+    .face-preview::before{
+      content:"";
+      position:absolute;
+      width:120px;height:150px;
+      border-radius:58px 58px 48px 48px;
+      border:2px solid rgba(240,240,245,0.22);
+      background:rgba(240,240,245,0.02);
+    }
+    .face-preview::after{
+      content:"";
+      position:absolute;
+      width:150px;height:2px;
+      background:linear-gradient(90deg, transparent, rgba(56,189,248,.85), transparent);
+      box-shadow:0 0 18px rgba(56,189,248,.4);
+      top:48%;
+      animation:scan 3.4s ease-in-out infinite;
+    }
+    .scan-corners{position:absolute;inset:22px}
+    .scan-corners i{
+      position:absolute;width:24px;height:24px;border-color:rgba(129,140,248,.6);border-style:solid
+    }
+    .scan-corners i:nth-child(1){top:0;left:0;border-width:3px 0 0 3px;border-top-left-radius:12px}
+    .scan-corners i:nth-child(2){top:0;right:0;border-width:3px 3px 0 0;border-top-right-radius:12px}
+    .scan-corners i:nth-child(3){bottom:0;left:0;border-width:0 0 3px 3px;border-bottom-left-radius:12px}
+    .scan-corners i:nth-child(4){bottom:0;right:0;border-width:0 3px 3px 0;border-bottom-right-radius:12px}
+    .check-row{
+      display:flex;align-items:center;gap:8px;
+      color:var(--green);
+      font-size:13px;font-weight:700
+    }
+    .check-row .dot{
+      width:18px;height:18px;border-radius:999px;
+      background:rgba(52,211,153,.14);
+      border:1px solid rgba(52,211,153,.3);
+      display:grid;place-items:center;
+      font-size:11px;
+    }
+
+    .hero-side-card{
+      position:absolute;
+      top:28px;
+      left:-24px;
+      width:180px;
+      padding:16px;
+      border-radius:22px;
+      background:rgba(13,13,26,.9);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      z-index:4;
+      transform:rotate(-6deg);
+    }
+    .hero-side-card h4{
+      font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin-bottom:10px
+    }
+    .hero-side-card .qr-shell{
+      border-radius:18px;background:#fff;padding:14px;display:grid;place-items:center;
+    }
+    .hero-side-card .qr-meta{
+      margin-top:10px;font-size:12px;color:var(--text-muted)
+    }
+    .qr-svg{width:110px;height:110px}
+    .hero-callout{
+      position:absolute;
+      right:24px;
+      top:40px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(6,6,16,.84);
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;gap:10px;align-items:center;
+      z-index:4;
+      max-width:220px;
+    }
+    .hero-callout .signal{
+      width:36px;height:36px;border-radius:12px;background:rgba(52,211,153,.12);display:grid;place-items:center;color:var(--green);border:1px solid rgba(52,211,153,.2);flex:0 0 auto
+    }
+    .hero-callout strong{display:block;font-size:13px}
+    .hero-callout span{display:block;font-size:12px;color:var(--text-faint);line-height:1.4}
+
+    .problem-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start
+    }
+    .bullet-list{
+      display:grid;gap:14px;
+    }
+    .bullet{
+      display:flex;gap:12px;align-items:flex-start
+    }
+    .bullet .icon{
+      width:12px;height:12px;border-radius:999px;flex:0 0 auto;margin-top:10px
+    }
+    .bullet .copy{color:var(--text-muted)}
+    .bullet.red .icon{background:var(--red);box-shadow:0 0 0 6px rgba(248,113,113,.08)}
+    .bullet.green .icon{background:var(--green);box-shadow:0 0 0 6px rgba(52,211,153,.08)}
+    .bullet .copy strong{display:block;color:var(--text);font-size:17px;line-height:1.45}
+    .callout-stack{display:grid;gap:18px}
+    .callout-card{
+      padding:24px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--surface);
+      border:1px solid var(--border);
+    }
+    .callout-card.emphasis{
+      background:
+        radial-gradient(320px 120px at 0% 0%, rgba(248,113,113,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+        var(--surface);
+    }
+    .callout-card strong.stat{
+      font-size:30px;line-height:1.1;display:block;letter-spacing:-0.04em;margin-bottom:12px
+    }
+
+    .solution-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px
+    }
+    .solution-item{
+      padding:18px 18px 18px 20px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+      display:flex;gap:12px;align-items:flex-start
+    }
+    .solution-item .copy{font-size:15px;color:var(--text-muted)}
+    .solution-item .copy strong{color:var(--text);display:block;margin-bottom:4px;font-size:16px}
+
+    .flow-grid{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+      margin-top:34px;
+    }
+    .flow-box{
+      padding:22px;
+      border-radius:24px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      display:grid;
+      gap:16px;
+    }
+    .flow-box.accent{
+      border-color:rgba(129,140,248,.38);
+      box-shadow:0 0 0 1px rgba(129,140,248,.08), 0 18px 36px rgba(0,0,0,.18);
+      background:
+        radial-gradient(280px 110px at 0 0, rgba(129,140,248,.08), transparent 60%),
+        var(--surface);
+    }
+    .flow-box h3{margin:0;font-size:22px}
+    .flow-box ul{
+      list-style:none;padding:0;margin:0;display:grid;gap:10px
+    }
+    .flow-box li{
+      color:var(--text-muted);
+      padding-left:18px;
+      position:relative;
+      font-size:15px;
+      line-height:1.6;
+    }
+    .flow-box li::before{
+      content:"";
+      position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.15)
+    }
+    .arrow{
+      display:grid;place-items:center;position:relative
+    }
+    .arrow::before{
+      content:"";
+      width:100%;height:1px;background:linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,.22), rgba(255,255,255,.08));
+      position:absolute;top:50%;left:0;transform:translateY(-50%);
+    }
+    .arrow::after{
+      content:"";
+      width:10px;height:10px;border-top:1px solid rgba(255,255,255,.3);border-right:1px solid rgba(255,255,255,.3);transform:rotate(45deg);
+      position:absolute;right:6px;top:calc(50% - 5px)
+    }
+    .arrow span{
+      position:relative;z-index:1;
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#0a0a14;
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--text-faint);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:700;
+    }
+
+    .table-wrap{
+      margin-top:30px;
+      overflow:auto;
+      border-radius:24px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.02);
+    }
+    table.compare{
+      width:100%;
+      border-collapse:collapse;
+      min-width:820px;
+    }
+    .compare th,.compare td{
+      padding:18px 20px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      vertical-align:top;
+    }
+    .compare thead th{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      color:var(--text-faint);
+      background:#0b0b15;
+      position:sticky;
+      top:0;
+      z-index:1;
+    }
+    .compare tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}
+    .yes{color:var(--green);font-weight:700}
+    .no{color:var(--text-faint)}
+    .onboardai-val{
+      font-weight:700;
+      background:var(--gradient);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .workflow-grid{
+      display:grid;
+      gap:30px;
+    }
+    .workflow-block{
+      padding:28px;
+      border-radius:28px;
+      background:var(--surface);
+      border:1px solid var(--border);
+    }
+    .workflow-block p{
+      color:var(--text-muted);
+    }
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+      margin-top:24px;
+    }
+    .phone-gallery{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .browser-large .stats-strip{
+      grid-template-columns:repeat(5,minmax(0,1fr));
+    }
+    .browser-large .queue-item{
+      grid-template-columns:minmax(0,1fr) auto auto auto;
+    }
+    .queue-item .metric{
+      font-size:12px;color:var(--text-faint);
+      white-space:nowrap;
+    }
+    .subfeature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .feature-mini{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+    }
+    .feature-mini h4{
+      font-size:16px;line-height:1.4;margin-bottom:8px
+    }
+    .feature-mini p{
+      font-size:14px;line-height:1.7;color:var(--text-muted)
+    }
+
+    .status-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px
+    }
+    .status-card{
+      padding:22px;border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,0.02)
+    }
+    .stage-badge{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:38px;height:38px;border-radius:14px;
+      background:linear-gradient(135deg, rgba(129,140,248,.18), rgba(56,189,248,.12));
+      border:1px solid rgba(129,140,248,.2);
+      font-weight:800;
+      margin-bottom:14px;
+    }
+    .status-card p{font-size:15px;color:var(--text-muted)}
+
+    .controls-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px
+    }
+    .control-item{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:16px 18px;border-radius:18px;background:rgba(255,255,255,0.02);border:1px solid var(--border)
+    }
+
+    .architecture-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px
+    }
+    .info-card{
+      padding:20px;border-radius:20px;background:rgba(255,255,255,0.02);border:1px solid var(--border)
+    }
+    .info-card small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin-bottom:8px}
+    .info-card strong{display:block;font-size:18px;line-height:1.3;margin-bottom:8px}
+    .info-card p{font-size:14px;color:var(--text-muted)}
+
+    .themes{
+      display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:30px
+    }
+    .theme-card{
+      padding:18px;border-radius:20px;background:rgba(255,255,255,0.02);border:1px solid var(--border)
+    }
+    .swatches{display:flex;gap:10px;margin-bottom:14px}
+    .swatches span{width:24px;height:24px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+    .theme-card h4{font-size:16px;margin-bottom:6px}
+    .theme-card p{font-size:14px;color:var(--text-muted);line-height:1.6}
+
+    .steps{
+      display:grid;
+      gap:18px;
+      margin-top:28px;
+    }
+    .step-card{
+      display:grid;
+      grid-template-columns:72px minmax(0,1fr);
+      gap:18px;
+      padding:24px;
+      border-radius:22px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+    }
+    .step-number{
+      width:56px;height:56px;border-radius:18px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(129,140,248,.22), rgba(56,189,248,.14));
+      border:1px solid rgba(129,140,248,.24);
+      font-size:22px;font-weight:800
+    }
+
+    .status-cards{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+    .status-box{
+      padding:22px;border-radius:22px;background:rgba(255,255,255,0.02);border:1px solid var(--border)
+    }
+    .status-box small{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700
+    }
+    .status-box small::before{
+      content:"";width:9px;height:9px;border-radius:999px;background:currentColor
+    }
+    .status-box.now small{color:var(--green)}
+    .status-box.testing small{color:var(--amber)}
+    .status-box.planned small{color:var(--accent2)}
+    .status-box h4{font-size:18px;line-height:1.35;margin:14px 0 8px}
+    .status-box p{font-size:15px;color:var(--text-muted)}
+
+    .cta-panel{
+      padding:42px;
+      border-radius:32px;
+      background:
+        radial-gradient(600px 220px at 10% 0%, rgba(129,140,248,.18), transparent 60%),
+        radial-gradient(360px 160px at 90% 0%, rgba(56,189,248,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+        var(--surface);
+      border:1px solid rgba(129,140,248,.22);
+      box-shadow:0 22px 60px rgba(0,0,0,.28);
+      text-align:center;
+    }
+    .cta-panel p{
+      max-width:720px;margin:16px auto 0;color:var(--text-muted)
+    }
+    footer{
+      padding:28px 0 54px;
+      border-top:1px solid rgba(255,255,255,0.05);
+      color:var(--text-faint);
+      font-size:14px;
+    }
+    .footer-grid{
+      display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in-view{
+      opacity:1;
+      transform:none;
+    }
+
+    .logo-pulse{
+      transform-origin:85% 16%;
+      animation:logoPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse{
+      0%,100%{opacity:.65;transform:scale(1)}
+      50%{opacity:1;transform:scale(1.08)}
+    }
+    @keyframes scan{
+      0%,100%{transform:translateY(-44px)}
+      50%{transform:translateY(44px)}
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,.problem-grid,.split{grid-template-columns:1fr}
+      .hero-stage{min-height:auto;padding-top:28px}
+      .hero-side-card{left:0;top:8px}
+      .hero-callout{right:10px;top:18px}
+      .phone-float{position:relative;right:auto;bottom:auto;transform:none;margin:18px auto 0;width:min(320px,80%)}
+      .flow-grid{grid-template-columns:1fr}
+      .arrow{min-height:48px}
+      .arrow::before{width:1px;height:100%;left:50%;top:0;transform:translateX(-50%)}
+      .arrow::after{top:auto;bottom:6px;right:auto;left:calc(50% - 5px);transform:rotate(135deg)}
+      .compare thead th{position:static}
+      .architecture-grid,.themes,.status-grid,.status-cards,.controls-grid,.subfeature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .browser-large .stats-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .browser-large .queue-item{grid-template-columns:minmax(0,1fr) auto auto}
+    }
+    @media (max-width: 860px){
+      .desktop-nav{display:none}
+      .menu-toggle{display:inline-flex;position:relative}
+      .site-header.menu-open .mobile-nav{display:block}
+      .site-header.menu-open .menu-toggle span{opacity:0}
+      .site-header.menu-open .menu-toggle::before{transform:rotate(45deg)}
+      .site-header.menu-open .menu-toggle::after{transform:rotate(-45deg)}
+      .hero{padding-top:48px}
+      .hero-copy p{font-size:18px}
+      .stats-strip,.solution-grid,.phone-gallery,.browser-large .stats-strip,.status-grid,.controls-grid,.architecture-grid,.themes,.status-cards,.subfeature-grid{grid-template-columns:1fr}
+      .queue-item,.browser-large .queue-item{grid-template-columns:minmax(0,1fr)}
+      .queue-item > *:last-child{justify-self:start}
+      .step-card{grid-template-columns:56px minmax(0,1fr)}
+      .step-number{width:46px;height:46px;border-radius:15px;font-size:18px}
+      .cta-panel{padding:30px 24px}
+      .section{padding:88px 0}
+      .hero-stage::before{inset:0}
+    }
+    @media (max-width: 560px){
+      .container{width:min(100vw - 24px, 1180px)}
+      .nav-shell{height:74px}
+      .wordmark{font-size:22px}
+      .logo-mark{width:38px;height:38px}
+      .hero-chip-row{gap:10px}
+      .hero-chip{font-size:13px}
+      .hero-side-card,.hero-callout{position:static;transform:none;width:100%;max-width:none;margin-bottom:14px}
+      .browser-top{padding:14px}
+      .browser-body{padding:16px}
+      .stat-card strong{font-size:22px}
+      .workflow-block,.callout-card,.cta-panel{border-radius:24px}
+      .callout-card strong.stat{font-size:26px}
+      .phone-inner{min-height:auto}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        animation:none !important;
+        transition:none !important;
+      }
+      .reveal{opacity:1;transform:none}
+    }
+
+    @media print{
+      :root{
+        --bg:#ffffff;
+        --surface:#ffffff;
+        --surface2:#ffffff;
+        --surface3:#ffffff;
+        --border:rgba(0,0,0,0.12);
+        --text:#111111;
+        --text-muted:rgba(17,17,17,0.75);
+        --text-faint:rgba(17,17,17,0.55);
+        --accent:#3949ab;
+        --accent2:#0288d1;
+        --green:#0f8b5f;
+        --amber:#8d6b00;
+        --red:#c0392b;
+        --shadow:none;
+        --glow:none;
+      }
+      body{
+        background:#fff;
+        color:#111;
+        font-size:12pt;
+      }
+      header.site-header,.mobile-nav,.menu-toggle,.button-row,.hero-side-card,.hero-callout,.phone-float{display:none !important}
+      .section{padding:32px 0 !important;page-break-inside:avoid}
+      .card,.subtle-card,.workflow-block,.callout-card,.theme-card,.status-box,.step-card,.status-card,.info-card,.control-item,.solution-item,.cta-panel{
+        box-shadow:none !important;
+        background:#fff !important;
+        border:1px solid rgba(0,0,0,.12) !important;
+      }
+      .browser-frame,.phone{
+        box-shadow:none !important;
+        border:1px solid rgba(0,0,0,.12) !important;
+      }
+      .table-wrap{overflow:visible}
+      .compare{min-width:0}
+      .reveal{opacity:1 !important;transform:none !important}
+      a[href]::after{content:" (" attr(href) ")";font-size:10pt;color:#555}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"OnboardAI",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Web",
+    "url":"https://onboardai.co.za/",
+    "description":"AI-powered access control onboarding for South African estates, golf clubs, business parks, and office campuses. OnboardAI adds self-service enrollment, member matching, fraud controls, and multi-site management to Hikvision access control workflows.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"ZAR",
+      "availability":"https://schema.org/PreOrder"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container">
+      <div class="nav-shell">
+        <a class="logo-lockup" href="#top" aria-label="OnboardAI home">
+          <svg class="logo-mark" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="logoGrad" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 55 L28 28 L55 28" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 28 L172 28 L172 55" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M28 145 L28 172 L55 172" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <path d="M145 172 L172 172 L172 145" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+            <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGrad)" stroke-width="4" opacity="0.25" fill="url(#logoGrad)" fill-opacity="0.06" />
+            <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGrad)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+            <circle cx="82" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
+            <circle cx="118" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
+            <circle cx="100" cy="102" r="4" fill="url(#logoGrad)" opacity="0.7" />
+            <circle cx="74" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
+            <circle cx="126" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
+            <circle cx="100" cy="64" r="3" fill="url(#logoGrad)" opacity="0.5" />
+            <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+            <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
+              <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+            <path d="M88 150 L97 159 L114 140" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+          </svg>
+          <span class="wordmark"><span>Onboard</span><span class="ai">AI</span></span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#problem">Problem</a>
+          <a href="#solution">Solution</a>
+          <a href="#hikcentral">HikCentral</a>
+          <a href="#workflow">How it works</a>
+          <a href="#security">Security</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#status">Status</a>
+          <a class="btn btn-primary nav-cta" href="#contact">Get in Touch</a>
+        </nav>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation">
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <div class="nav-card">
+          <a href="#problem">Problem</a>
+          <a href="#solution">Solution</a>
+          <a href="#hikcentral">HikCentral</a>
+          <a href="#workflow">How it works</a>
+          <a href="#security">Security</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#status">Status</a>
+          <a href="#contact">Get in Touch</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="pill">AI-powered access control</span>
+          <h1>The smart <span class="accent-text">onboarding layer</span> for Hikvision access control</h1>
+          <p>OnboardAI supercharges your existing HikCentral setup, adding self-service enrollment, member matching, fraud controls, and multi-site management that HikCentral does not have.</p>
+
+          <div class="hero-chip-row" aria-label="Key product highlights">
+            <div class="hero-chip">Self-service enrollment in 3 minutes</div>
+            <div class="hero-chip">Bulk approval for 2,000+ members</div>
+            <div class="hero-chip">Built for estates, golf clubs, and businesses</div>
+          </div>
+
+          <div class="button-row">
+            <a class="btn btn-primary" href="#workflow">See the workflow</a>
+            <a class="btn btn-secondary" href="#contact">Book a live demo</a>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal" aria-hidden="true">
+          <div class="hero-side-card">
+            <h4>Enrollment QR</h4>
+            <div class="qr-shell">
+              <svg class="qr-svg" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code preview">
+                <rect width="108" height="108" fill="white"/>
+                <rect x="6" y="6" width="28" height="28" fill="black"/>
+                <rect x="12" y="12" width="16" height="16" fill="white"/>
+                <rect x="16" y="16" width="8" height="8" fill="black"/>
+                <rect x="74" y="6" width="28" height="28" fill="black"/>
+                <rect x="80" y="12" width="16" height="16" fill="white"/>
+                <rect x="84" y="16" width="8" height="8" fill="black"/>
+                <rect x="6" y="74" width="28" height="28" fill="black"/>
+                <rect x="12" y="80" width="16" height="16" fill="white"/>
+                <rect x="16" y="84" width="8" height="8" fill="black"/>
+                <rect x="44" y="10" width="8" height="8" fill="black"/>
+                <rect x="54" y="10" width="8" height="8" fill="black"/>
+                <rect x="44" y="20" width="8" height="8" fill="black"/>
+                <rect x="54" y="20" width="18" height="8" fill="black"/>
+                <rect x="40" y="38" width="8" height="8" fill="black"/>
+                <rect x="50" y="38" width="8" height="8" fill="black"/>
+                <rect x="60" y="38" width="8" height="8" fill="black"/>
+                <rect x="70" y="38" width="8" height="8" fill="black"/>
+                <rect x="80" y="38" width="8" height="8" fill="black"/>
+                <rect x="20" y="40" width="8" height="8" fill="black"/>
+                <rect x="10" y="40" width="8" height="18" fill="black"/>
+                <rect x="30" y="50" width="8" height="8" fill="black"/>
+                <rect x="40" y="50" width="8" height="8" fill="black"/>
+                <rect x="50" y="50" width="8" height="18" fill="black"/>
+                <rect x="60" y="50" width="8" height="8" fill="black"/>
+                <rect x="70" y="50" width="18" height="8" fill="black"/>
+                <rect x="38" y="68" width="8" height="8" fill="black"/>
+                <rect x="48" y="68" width="8" height="8" fill="black"/>
+                <rect x="58" y="68" width="8" height="8" fill="black"/>
+                <rect x="68" y="68" width="8" height="8" fill="black"/>
+                <rect x="78" y="68" width="8" height="8" fill="black"/>
+                <rect x="40" y="78" width="8" height="8" fill="black"/>
+                <rect x="50" y="78" width="18" height="8" fill="black"/>
+                <rect x="70" y="78" width="8" height="8" fill="black"/>
+                <rect x="80" y="78" width="8" height="18" fill="black"/>
+                <rect x="40" y="88" width="8" height="8" fill="black"/>
+                <rect x="50" y="88" width="8" height="8" fill="black"/>
+                <rect x="60" y="88" width="8" height="8" fill="black"/>
+              </svg>
+            </div>
+            <div class="qr-meta">Expiry: 30 days<br>Tracked enrollments: 184</div>
+          </div>
+
+          <div class="hero-callout">
+            <div class="signal">✓</div>
+            <div>
+              <strong>AI verified</strong>
+              <span>Photo passed checks. Ready for approval.</span>
+            </div>
+          </div>
+
+          <div class="browser-frame">
+            <div class="browser-top">
+              <div class="traffic"><span></span><span></span><span></span></div>
+              <div class="urlbar">onboardai.co.za/admin</div>
+            </div>
+            <div class="browser-body">
+              <div class="mini-nav">
+                <div class="mini-brand">
+                  <span class="mark-badge">
+                    <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="logoGrad" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#818cf8"/>
+                          <stop offset="1" stop-color="#38bdf8"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M28 55 L28 28 L55 28" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <path d="M145 28 L172 28 L172 55" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <path d="M28 145 L28 172 L55 172" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <path d="M145 172 L172 172 L172 145" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGrad)" stroke-width="4" opacity="0.25" fill="url(#logoGrad)" fill-opacity="0.06" />
+                      <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGrad)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+                      <circle cx="82" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
+                      <circle cx="118" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
+                      <circle cx="100" cy="102" r="4" fill="url(#logoGrad)" opacity="0.7" />
+                      <circle cx="74" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
+                      <circle cx="126" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
+                      <circle cx="100" cy="64" r="3" fill="url(#logoGrad)" opacity="0.5" />
+                      <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
+                        <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+                        <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+                      </g>
+                      <path d="M88 150 L97 159 L114 140" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+                    </svg>
+                  </span>
+                  <div class="mini-word accent-text">OnboardAI</div>
+                </div>
+                <button class="micro-btn">Bulk approve</button>
+              </div>
+
+              <div class="stats-strip">
+                <div class="stat-card"><small>Pending</small><strong>42</strong></div>
+                <div class="stat-card"><small>Today</small><strong>18</strong></div>
+                <div class="stat-card"><small>Flagged</small><strong>5</strong></div>
+                <div class="stat-card"><small>Active</small><strong>1,982</strong></div>
+              </div>
+
+              <div class="queue">
+                <div class="queue-item" data-tone="green">
+                  <div class="person">
+                    <div class="avatar">JvM</div>
+                    <div><strong>Johan van der Merwe</strong><span>Matched to Greenfields Golf Estate member list</span></div>
+                  </div>
+                  <div class="status-tag green">AI verified</div>
+                  <button class="micro-btn">Approve</button>
+                </div>
+                <div class="queue-item" data-tone="amber">
+                  <div class="person">
+                    <div class="avatar">TN</div>
+                    <div><strong>Thandi Nkosi</strong><span>ID matched, photo needs manual review</span></div>
+                  </div>
+                  <div class="status-tag amber">Review</div>
+                  <button class="micro-btn">Open</button>
+                </div>
+                <div class="queue-item" data-tone="red">
+                  <div class="person">
+                    <div class="avatar">MB</div>
+                    <div><strong>Margaret Botha</strong><span>Duplicate ID found in previous submission</span></div>
+                  </div>
+                  <div class="status-tag red">Issue</div>
+                  <button class="micro-btn">Inspect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-float">
+            <div class="phone">
+              <div class="phone-inner">
+                <div class="notch"></div>
+                <div class="screen">
+                  <div class="step-pill">Step 4 of 5</div>
+                  <div class="phone-title">Upload your gate photo</div>
+                  <div class="phone-copy">Stand facing the camera. Good lighting. No sunglasses. The AI checks the image before you submit.</div>
+                  <div class="face-preview">
+                    <div class="scan-corners"><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="check-row"><span class="dot">✓</span> Face detected. Framing looks good.</div>
+                  <div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
+                  <div class="phone-cta">
+                    <div class="ghost">Back</div>
+                    <div class="solid">Continue</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="problem">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">The problem</span>
+          <h2>Every enrollment requires a physical appointment at the guardhouse</h2>
+          <p>At most estates, golf clubs, and business parks today, enrolling someone into the Hikvision facial recognition system still means a physical meeting at the guardhouse or security office. Every time. No exceptions.</p>
+        </div>
+
+        <div class="problem-grid">
+          <div class="bullet-list">
+            <div class="bullet red">
+              <span class="icon"></span>
+              <div class="copy">New resident or member fills in a paper form or PDF.</div>
+            </div>
+            <div class="bullet red">
+              <span class="icon"></span>
+              <div class="copy">They make an appointment with the security person responsible for enrollment.</div>
+            </div>
+            <div class="bullet red">
+              <span class="icon"></span>
+              <div class="copy">Both must physically meet at the guardhouse, same time, same place.</div>
+            </div>
+            <div class="bullet red">
+              <span class="icon"></span>
+              <div class="copy">Security person manually types the details into the Hikvision system on the guardhouse computer.</div>
+            </div>
+            <div class="bullet red">
+              <span class="icon"></span>
+              <div class="copy">A photo is taken right there using the Hikvision device.</div>
+            </div>
+            <div class="bullet red">
+              <span class="icon"></span>
+              <div class="copy">Person is enrolled and they test it at the gate.</div>
+            </div>
+          </div>
+
+          <div class="callout-stack">
+            <div class="callout-card emphasis">
+              <p>This requires a physical appointment, both parties present, 15 to 20 minutes per person, the guardhouse computer to be accessible, and one person at a time. It becomes a total bottleneck. It is impossible on weekends or holidays unless someone staffs the guardhouse.</p>
+            </div>
+            <div class="callout-card">
+              <strong class="stat">For a site going live with 2,000 people: 2,000 individual appointments. Roughly 500 hours of work.</strong>
+              <p>That is operational drag before the system starts delivering value.</p>
+            </div>
+            <div class="callout-card">
+              <p>Some sites have improved this slightly with digital forms sent via WhatsApp, but even those still require heavy manual work per person: downloading photos, copy-pasting data, assigning access levels, and checking whether the person is actually allowed access. Neither approach scales beyond a handful of people per week.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="solution">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">The solution</span>
+          <h2>OnboardAI adds the intelligence HikCentral is missing</h2>
+          <p>HikCentral is excellent access control hardware. OnboardAI is the smart onboarding layer built on top of it. Your existing Hikvision devices, cameras, and HikCentral installation stay exactly as they are. OnboardAI handles everything from the first member interaction through to pushing approved enrollments into HikCentral automatically.</p>
+        </div>
+
+        <div class="solution-grid">
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Members self-enroll on their own phones</strong>Three minutes, no admin involvement.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Photo quality is checked twice</strong>AI pre-validation before submission, then HikCentral device validation at the gate.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Official list matching</strong>Automatic matching against your member or resident list.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>SA ID validation</strong>Luhn checks, duplicate detection, and cleaner records.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Bulk approvals for large launches</strong>One-click and bulk approval for 2,000+ member lists.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Direct HikCentral push</strong>Approved enrollments are pushed through the API.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Fast offboarding</strong>Deactivate a member and gate access is removed within seconds.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Validity periods and roles</strong>Expiry dates and door groups by person type.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Status notifications</strong>Members know when access goes live.</div></div>
+          <div class="solution-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div class="copy"><strong>Full audit trail</strong>Every action logged. POPIA designed in from the start.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="hikcentral">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Works with HikCentral</span>
+          <h2>Your Hikvision setup stays exactly as it is</h2>
+          <p>HikCentral already has a self-registration feature: someone scans a QR code, uploads a photo from their phone, and the access control device itself validates that the photo is good enough to recognise the person at the gate. If the device accepts the photo, it will work. That is a strong guarantee.</p>
+          <p>OnboardAI builds on top of this. It does not bypass or replace the device validation. The flow is additive: OnboardAI handles the smart onboarding steps that HikCentral cannot do, then hands the approved enrollment to HikCentral, which does what it is already good at. Two layers of validation. Neither replaces the other.</p>
+        </div>
+
+        <div class="flow-grid">
+          <div class="flow-box">
+            <h3>Member / Resident</h3>
+            <ul>
+              <li>Scans QR code</li>
+              <li>Fills in the form</li>
+              <li>Submits photo</li>
+            </ul>
+          </div>
+          <div class="arrow"><span>Submit</span></div>
+          <div class="flow-box accent">
+            <h3>OnboardAI</h3>
+            <ul>
+              <li>AI photo pre-check</li>
+              <li>ID and fraud validation</li>
+              <li>Member list match</li>
+              <li>Admin approval</li>
+            </ul>
+          </div>
+          <div class="arrow"><span>Approved</span></div>
+          <div class="flow-box">
+            <h3>HikCentral</h3>
+            <ul>
+              <li>Validates photo</li>
+              <li>Enrolls person</li>
+              <li>Gate recognises them</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="table-wrap" role="region" aria-label="Comparison table" tabindex="0">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>HikCentral self-registration</th>
+                <th>OnboardAI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>QR code for enrollment</td><td><span class="yes">Yes</span> - basic</td><td><span class="onboardai-val">Yes - branded, trackable, expiry controls</span></td></tr>
+              <tr><td>Mobile enrollment form</td><td><span class="yes">Yes</span> - standard Hikvision UI</td><td><span class="onboardai-val">Yes - custom branded, elderly-friendly, step-by-step</span></td></tr>
+              <tr><td>Photo quality check</td><td><span class="yes">Yes</span> - device validates</td><td><span class="onboardai-val">Yes - AI pre-check, then device validates again</span></td></tr>
+              <tr><td>Admin review queue</td><td><span class="yes">Yes</span> - basic</td><td><span class="onboardai-val">Yes - colour-coded, filterable, bulk approve</span></td></tr>
+              <tr><td>Member list matching</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - auto-verify against paying member CSV</span></td></tr>
+              <tr><td>SA ID validation</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - Luhn check, duplicate detection</span></td></tr>
+              <tr><td>Fraud controls</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - 31 controls across 5 categories</span></td></tr>
+              <tr><td>Multi-site dashboard</td><td><span class="no">No</span> - per-site only</td><td><span class="onboardai-val">Yes - manage all sites from one login</span></td></tr>
+              <tr><td>Bulk onboarding (2,000+ members)</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - CSV import and bulk approve</span></td></tr>
+              <tr><td>Custom branding per site</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - themes, logos, colours</span></td></tr>
+              <tr><td>Status notifications</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - email, WhatsApp planned</span></td></tr>
+              <tr><td>Audit trail</td><td><span class="yes">Basic</span></td><td><span class="onboardai-val">Full - every action logged with who, when, and where</span></td></tr>
+              <tr><td>Offboarding / deactivation</td><td><span class="no">No - manual deletion in HikCentral UI</span></td><td><span class="onboardai-val">Yes - one-click removal, gate access revoked within seconds</span></td></tr>
+              <tr><td>Validity periods</td><td><span class="no">No</span></td><td><span class="onboardai-val">Yes - per person type, e.g. 12-month membership expiry</span></td></tr>
+              <tr><td>Role-based access levels</td><td><span class="no">Manual per person</span></td><td><span class="onboardai-val">Yes - automatic by person type</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="workflow">
+      <div class="container workflow-grid">
+        <div class="section-intro">
+          <span class="eyebrow">How it works</span>
+          <h2>Walk through the full workflow</h2>
+        </div>
+
+        <div class="workflow-block">
+          <h3>The onboarding form</h3>
+          <p>Members receive a link via WhatsApp or email. When they open it on their phone, they see a clean 5-step wizard designed for all ages, including older residents who may not be comfortable with complex apps. Large text, simple language, one thing per screen.</p>
+          <p style="margin-top:12px">The five steps are Welcome, Details, Contact, Photo, and Terms. The AI validates the photo, checking for a clear face, correct framing, and minimum resolution before the form can be submitted. If the photo fails validation, the member is shown exactly what to fix and prompted to try again.</p>
+
+          <div class="phone-gallery" aria-hidden="true" style="margin-top:24px">
+            <div class="phone">
+              <div class="phone-inner">
+                <div class="notch"></div>
+                <div class="screen">
+                  <div class="step-pill">Step 1 of 5</div>
+                  <div class="phone-title">Welcome to Greenfields Golf Estate</div>
+                  <div class="phone-copy">This takes about 3 minutes. You will need your ID number and a clear photo for facial recognition access.</div>
+                  <div class="phone-panel">
+                    <div class="field">
+                      <label>Enrollment link</label>
+                      <div class="input">Member onboarding • expires in 18 days</div>
+                    </div>
+                    <div class="field">
+                      <label>Support</label>
+                      <div class="input">Need help? Ask reception or security.</div>
+                    </div>
+                  </div>
+                  <div class="progress"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+                  <div class="phone-cta">
+                    <div class="ghost">Exit</div>
+                    <div class="solid">Start</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="phone">
+              <div class="phone-inner">
+                <div class="notch"></div>
+                <div class="screen">
+                  <div class="step-pill">Step 4 of 5</div>
+                  <div class="phone-title">Photo check</div>
+                  <div class="phone-copy">Make sure your full face is visible. Remove caps and sunglasses. Use good lighting and hold the phone steady.</div>
+                  <div class="face-preview">
+                    <div class="scan-corners"><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="phone-panel">
+                    <div class="check-row"><span class="dot">✓</span> Face found and centered</div>
+                    <div class="check-row"><span class="dot">✓</span> Resolution above minimum</div>
+                    <div class="check-row"><span class="dot">✓</span> Good lighting</div>
+                  </div>
+                  <div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
+                  <div class="phone-cta">
+                    <div class="ghost">Retake</div>
+                    <div class="solid">Use this photo</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow-block">
+          <h3>The admin dashboard</h3>
+          <p>The administrator sees a live enrollment queue. A stats strip at the top shows pending submissions, enrollments today, flagged issues, total active members, and the on-site agent connection status. The queue is colour-coded: green for AI-verified submissions that are ready to approve, amber for submissions needing manual review, red for issues that need attention.</p>
+          <p style="margin-top:12px">Admins can approve or reject individual submissions, or bulk-approve all AI-verified ones in a single click. No manual data entry is required at any point.</p>
+
+          <div class="browser-frame browser-large" aria-hidden="true" style="margin-top:24px; width:100%">
+            <div class="browser-top">
+              <div class="traffic"><span></span><span></span><span></span></div>
+              <div class="urlbar">onboardai.co.za/admin</div>
+            </div>
+            <div class="browser-body">
+              <div class="mini-nav">
+                <div class="mini-brand">
+                  <span class="mark-badge">
+                    <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="logoGrad" x1="28" y1="28" x2="172" y2="172" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#818cf8"/>
+                          <stop offset="1" stop-color="#38bdf8"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M28 55 L28 28 L55 28" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <path d="M145 28 L172 28 L172 55" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <path d="M28 145 L28 172 L55 172" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <path d="M145 172 L172 172 L172 145" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+                      <ellipse cx="100" cy="88" rx="38" ry="46" stroke="url(#logoGrad)" stroke-width="4" opacity="0.25" fill="url(#logoGrad)" fill-opacity="0.06" />
+                      <line x1="50" y1="88" x2="150" y2="88" stroke="url(#logoGrad)" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+                      <circle cx="82" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
+                      <circle cx="118" cy="76" r="4.5" fill="url(#logoGrad)" opacity="0.9" />
+                      <circle cx="100" cy="102" r="4" fill="url(#logoGrad)" opacity="0.7" />
+                      <circle cx="74" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
+                      <circle cx="126" cy="96" r="3" fill="url(#logoGrad)" opacity="0.5" />
+                      <circle cx="100" cy="64" r="3" fill="url(#logoGrad)" opacity="0.5" />
+                      <line x1="82" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="118" y1="76" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="82" y1="76" x2="74" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="118" y1="76" x2="126" y2="96" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="74" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="126" y1="96" x2="100" y2="102" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="82" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <line x1="118" y1="76" x2="100" y2="64" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.2" />
+                      <g class="logo-pulse" transform="translate(152, 38)" opacity="0.8">
+                        <line x1="0" y1="-8" x2="0" y2="8" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" />
+                        <line x1="-5" y1="-5" x2="5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+                        <line x1="5" y1="-5" x2="-5" y2="5" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" />
+                      </g>
+                      <path d="M88 150 L97 159 L114 140" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+                    </svg>
+                  </span>
+                  <div class="mini-word accent-text">OnboardAI</div>
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                  <button class="micro-btn">Filter</button>
+                  <button class="micro-btn">Bulk approve</button>
+                </div>
+              </div>
+
+              <div class="stats-strip">
+                <div class="stat-card"><small>Pending submissions</small><strong>42</strong></div>
+                <div class="stat-card"><small>Enrollments today</small><strong>18</strong></div>
+                <div class="stat-card"><small>Flagged issues</small><strong>5</strong></div>
+                <div class="stat-card"><small>Total active members</small><strong>1,982</strong></div>
+                <div class="stat-card"><small>Agent status</small><strong style="font-size:19px;color:var(--green)">Connected</strong></div>
+              </div>
+
+              <div class="queue">
+                <div class="queue-item" data-tone="green">
+                  <div class="person">
+                    <div class="avatar">JvM</div>
+                    <div><strong>Johan van der Merwe</strong><span>ID matched • Photo passed • Greenfields Golf Estate</span></div>
+                  </div>
+                  <div class="metric">09:16</div>
+                  <div class="status-tag green">Ready</div>
+                  <button class="micro-btn">Approve</button>
+                </div>
+                <div class="queue-item" data-tone="green">
+                  <div class="person">
+                    <div class="avatar">LR</div>
+                    <div><strong>Lerato Mokoena</strong><span>Resident onboarding • Estate North Gate</span></div>
+                  </div>
+                  <div class="metric">09:03</div>
+                  <div class="status-tag green">Ready</div>
+                  <button class="micro-btn">Approve</button>
+                </div>
+                <div class="queue-item" data-tone="amber">
+                  <div class="person">
+                    <div class="avatar">TN</div>
+                    <div><strong>Thandi Nkosi</strong><span>Photo needs manual review • Duplicate surname match</span></div>
+                  </div>
+                  <div class="metric">08:52</div>
+                  <div class="status-tag amber">Review</div>
+                  <button class="micro-btn">Open</button>
+                </div>
+                <div class="queue-item" data-tone="red">
+                  <div class="person">
+                    <div class="avatar">MB</div>
+                    <div><strong>Margaret Botha</strong><span>ID already used on previous submission</span></div>
+                  </div>
+                  <div class="metric">08:21</div>
+                  <div class="status-tag red">Issue</div>
+                  <button class="micro-btn">Inspect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subfeature-grid">
+            <div class="feature-mini">
+              <h4>Member list management</h4>
+              <p>Import your existing member or resident list from CSV. New enrollments are automatically matched using name and ID number. Valid matches are flagged as AI verified. Mismatches are routed for manual review.</p>
+            </div>
+            <div class="feature-mini">
+              <h4>Onboarding links and QR codes</h4>
+              <p>Generate enrollment links with configurable expiry dates and optional use limits. Download a QR code for reception, the gate, or the welcome pack. Link usage is tracked by site.</p>
+            </div>
+            <div class="feature-mini">
+              <h4>Status tracking for members</h4>
+              <p>Every person gets a bookmarkable status page. The timeline updates through Submitted, Validated, Reviewed, and Access Active so they know exactly where they stand.</p>
+            </div>
+          </div>
+
+          <div class="status-grid" aria-label="Status stages">
+            <div class="status-card"><span class="stage-badge">1</span><h3>Submitted</h3><p>Form received and queued for validation.</p></div>
+            <div class="status-card"><span class="stage-badge">2</span><h3>Validated</h3><p>AI photo check passed and record verified.</p></div>
+            <div class="status-card"><span class="stage-badge">3</span><h3>Reviewed</h3><p>Administrator approved the enrollment.</p></div>
+            <div class="status-card"><span class="stage-badge">4</span><h3>Access Active</h3><p>Record pushed into the access control system.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="security">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Security and compliance</span>
+          <h2>31 built-in controls across 5 categories</h2>
+          <p>OnboardAI is built with data protection and access control at its core. POPIA compliance is designed in: photos are automatically deleted after 72 hours and ID numbers are stored as one-way hashes, never in plain text. Here is a summary of the key controls.</p>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>SA ID number validation using the Luhn algorithm</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Duplicate ID detection across the member list</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Duplicate face detection on submission</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>AI photo quality validation for clarity, framing, and resolution</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Member list matching before approval</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Access level enforcement by person type</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Enrollment link expiry dates and use limits</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Full audit trail of every admin action</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Photos deleted after 72 hours</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>ID numbers hashed and never stored in plain text</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>Rate limiting on enrollment submissions</div></div>
+          <div class="control-item"><span class="icon" style="background:var(--green);width:12px;height:12px;border-radius:50%;margin-top:7px;box-shadow:0 0 0 6px rgba(52,211,153,.08)"></span><div>JWT-based admin authentication with expiry</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="architecture">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Architecture</span>
+          <h2>A layer on top, not a replacement</h2>
+          <p>OnboardAI sits above your existing HikCentral installation. It runs on a central server, cloud-hosted or on-site at the security office or main operations office. A lightweight on-site agent creates the bridge between OnboardAI and HikCentral, communicating over HTTPS with no inbound firewall rules or VPN required.</p>
+          <p>Your existing Hikvision cameras, readers, and HikCentral licenses are unchanged. OnboardAI simply adds the onboarding intelligence on top and pushes approved enrollments through when they are ready.</p>
+          <p><em>The HikCentral API integration is in active testing, leveraging the existing self-registration pipeline that HikCentral provides.</em></p>
+        </div>
+
+        <div class="flow-grid">
+          <div class="flow-box">
+            <h3>Members</h3>
+            <ul>
+              <li>Phone or browser</li>
+              <li>Submit enrollment</li>
+              <li>Check status page</li>
+            </ul>
+          </div>
+          <div class="arrow"><span>HTTPS</span></div>
+          <div class="flow-box accent">
+            <h3>OnboardAI</h3>
+            <ul>
+              <li>Smart onboarding layer</li>
+              <li>AI, fraud, and ID checks</li>
+              <li>Multi-site management</li>
+            </ul>
+          </div>
+          <div class="arrow"><span>Approved</span></div>
+          <div class="flow-box">
+            <h3>HikCentral</h3>
+            <ul>
+              <li>Your existing installation</li>
+              <li>Device validates photo</li>
+              <li>Controls gate access</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="architecture-grid">
+          <div class="info-card"><small>Deployment</small><strong>Single-command setup</strong><p>Up and running in minutes on a VPS or a machine in the site office.</p></div>
+          <div class="info-card"><small>Hardware</small><strong>Cloud or on-site</strong><p>Use the infrastructure model that fits the site, campus, estate, or business.</p></div>
+          <div class="info-card"><small>Multi-site</small><strong>Built in</strong><p>Separate settings, branding, and enrollment links per site.</p></div>
+          <div class="info-card"><small>Connectivity</small><strong>No VPN required</strong><p>The agent uses outbound HTTPS only, reducing setup friction.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="branding">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Branding</span>
+          <h2>Five built-in themes, fully customisable</h2>
+          <p>The onboarding form can be branded to match your estate, golf club, business park, or office campus. Choose from five built-in themes or use your own colours and logo. Each site in a multi-site deployment can have its own look.</p>
+        </div>
+
+        <div class="themes">
+          <div class="theme-card">
+            <div class="swatches"><span style="background:#6366f1"></span><span style="background:#111118"></span><span style="background:#0a0a0f"></span></div>
+            <h4>Default</h4>
+            <p>Dark indigo, clean and modern.</p>
+          </div>
+          <div class="theme-card">
+            <div class="swatches"><span style="background:#15803d"></span><span style="background:#14532d"></span><span style="background:#052e16"></span></div>
+            <h4>Golf Club</h4>
+            <p>Deep greens with a more traditional feel.</p>
+          </div>
+          <div class="theme-card">
+            <div class="swatches"><span style="background:#b45309"></span><span style="background:#1c1917"></span><span style="background:#0c0a09"></span></div>
+            <h4>Estate</h4>
+            <p>Warm amber tones for residential sites.</p>
+          </div>
+          <div class="theme-card">
+            <div class="swatches"><span style="background:#0ea5e9"></span><span style="background:#0c1a2e"></span><span style="background:#070d18"></span></div>
+            <h4>Ocean</h4>
+            <p>Cool coastal blues with a clean digital look.</p>
+          </div>
+          <div class="theme-card">
+            <div class="swatches"><span style="background:#4f46e5"></span><span style="background:#f8f8fc"></span><span style="background:#ededf5"></span></div>
+            <h4>Light</h4>
+            <p>Clean light mode for sites that prefer a softer interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="getting-started">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Getting started</span>
+          <h2>Five steps from setup to first enrollment</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div><h3>Deploy OnboardAI on a server</h3><p class="muted">Provision a server, either a cloud VPS or an on-site machine in the site office. OnboardAI is installed and running in under 15 minutes.</p></div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div><h3>Configure the access control connection</h3><p class="muted">Install the lightweight on-site agent on a machine with network access to your access control system. Paste in the connection details from the admin panel. This is a once-off setup with your IT team.</p></div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div><h3>Import your member list</h3><p class="muted">Upload a CSV with your current member or resident list. OnboardAI uses this to validate new enrollments and match them against known people.</p></div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div><h3>Share the onboarding link</h3><p class="muted">Generate an enrollment link from the settings panel. Share it via WhatsApp broadcast, email, or print the QR code for reception. Members can start enrolling immediately.</p></div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">5</div>
+            <div><h3>Review and approve from the dashboard</h3><p class="muted">Log in to the admin dashboard to see incoming enrollments. AI-verified submissions can be bulk-approved in one click, then queued for automatic transfer to the access control system.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="status">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Current status</span>
+          <h2>What works today, what is coming next</h2>
+          <p>The OnboardAI onboarding layer is production-ready. The core enrollment pipeline, fraud controls, member matching, and multi-site management are complete and tested. The HikCentral API integration is in active testing, leveraging HikCentral's existing self-registration pipeline to push approved enrollments directly to the access control system.</p>
+        </div>
+
+        <div class="status-cards">
+          <div class="status-box now"><small>Working now</small><h4>Onboarding form and AI photo pre-validation</h4><p>Step-by-step member flow with guided inputs and instant photo feedback.</p></div>
+          <div class="status-box now"><small>Working now</small><h4>Admin dashboard and approval workflow</h4><p>Live queue, colour-coded statuses, and one-click review actions.</p></div>
+          <div class="status-box now"><small>Working now</small><h4>Member list matching and SA ID validation</h4><p>Cleaner records and stronger controls before access is granted.</p></div>
+          <div class="status-box now"><small>Working now</small><h4>Multi-site management and per-site branding</h4><p>Separate site settings with central oversight from one login.</p></div>
+          <div class="status-box now"><small>Working now</small><h4>Audit trail and POPIA controls</h4><p>Traceable actions, retention controls, and hashed ID handling.</p></div>
+          <div class="status-box testing"><small>In testing</small><h4>HikCentral API integration</h4><p>Leveraging HikCentral's existing self-registration pipeline for approved enrollments.</p></div>
+          <div class="status-box planned"><small>Planned</small><h4>WhatsApp status notifications</h4><p>Notify members the moment access becomes active.</p></div>
+          <div class="status-box planned"><small>Planned</small><h4>Payment integration for new member fees</h4><p>Link onboarding to payment steps where a site needs it.</p></div>
+          <div class="status-box planned"><small>Planned</small><h4>Self-service site signup</h4><p>Support faster onboarding for new estates, golf clubs, and businesses.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="container">
+        <div class="cta-panel">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Interested in OnboardAI?</h2>
+          <p>Interested in OnboardAI for your estate, golf club, business park, or office campus? We can arrange a live demo and walk through the installation process with your IT team. Get in touch and we will set it up.</p>
+          <div class="button-row" style="justify-content:center">
+            <a class="btn btn-primary" href="mailto:info@onboardai.co.za">info@onboardai.co.za</a>
+            <a class="btn btn-secondary" href="#top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>OnboardAI - AI-powered access control onboarding. Designed for South African estates, golf clubs, business parks, and office campuses.</div>
+      <div>onboardai.co.za</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const header = document.querySelector('.site-header');
+      const toggle = document.querySelector('.menu-toggle');
+      const mobileLinks = document.querySelectorAll('.mobile-nav a');
+      if(toggle){
+        toggle.addEventListener('click', function(){
+          const open = header.classList.toggle('menu-open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          header.classList.remove('menu-open');
+          if(toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>

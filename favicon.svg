@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-label="OnboardAI" role="img">
+  <!-- Camera viewfinder brackets -->
+  <path d="M28 55 L28 28 L55 28" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+  <path d="M145 28 L172 28 L172 55" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+  <path d="M28 145 L28 172 L55 172" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+  <path d="M145 172 L172 172 L172 145" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5" />
+
+  <!-- Face silhouette - abstract, geometric -->
+  <ellipse cx="100" cy="88" rx="38" ry="46" stroke="currentColor" stroke-width="4" opacity="0.25" fill="currentColor" fill-opacity="0.06" />
+
+  <!-- AI scan line - animated feel via dashes -->
+  <line x1="50" y1="88" x2="150" y2="88" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" opacity="0.4" />
+
+  <!-- Neural network nodes -->
+  <circle cx="82" cy="76" r="4.5" fill="currentColor" opacity="0.9" />
+  <circle cx="118" cy="76" r="4.5" fill="currentColor" opacity="0.9" />
+  <circle cx="100" cy="102" r="4" fill="currentColor" opacity="0.7" />
+  <circle cx="74" cy="96" r="3" fill="currentColor" opacity="0.5" />
+  <circle cx="126" cy="96" r="3" fill="currentColor" opacity="0.5" />
+  <circle cx="100" cy="64" r="3" fill="currentColor" opacity="0.5" />
+
+  <!-- Neural connections -->
+  <line x1="82" y1="76" x2="100" y2="102" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="118" y1="76" x2="100" y2="102" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="82" y1="76" x2="74" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="118" y1="76" x2="126" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="74" y1="96" x2="100" y2="102" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="126" y1="96" x2="100" y2="102" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="82" y1="76" x2="100" y2="64" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+  <line x1="118" y1="76" x2="100" y2="64" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+
+  <!-- AI sparkle - top right -->
+  <g transform="translate(152, 38)" opacity="0.8">
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="5" y1="-5" x2="-5" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Checkmark at bottom - verified -->
+  <path d="M88 150 L97 159 L114 140" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+</svg>
